@@ -1,0 +1,11 @@
+.custompagination {
+    cursor: pointer;
+}
+.customactive {
+    color: #007700;
+    font-style: normal;
+}
+
+a:hover {
+    text-decoration: none;
+}

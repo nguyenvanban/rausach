@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+	<h3 class="panel-title"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span>
+			<span><a  [routerLink]="['/quanly']" href="#">D.s Thành Viên</a></span>
+	</h3>
+</div>
+	<div class="panel-body">
+		<div class="content-row">
+			<div class="container-fluid">
+				<!--<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>-->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          
+					<table class="table table-hover table-bordered ">
+						<thead>
+							<tr>
+								<th class="text-center"><span><a  [routerLink]="['/quanly']" href="#">Mã Khách Hàng</a></span></th>
+								<th class="text-center"><span><a  [routerLink]="['/quanly']" href="#">Tên Khách Hàng</a></span></th>
+								<th class="text-center"><span><a  [routerLink]="['/quanly']" href="#">Tên Đăng Nhập</a></span></th>
+								<th class="text-center"><span><a  [routerLink]="['/quanly']" href="#">Địa Chỉ</a></span></th>
+								<th class="text-center"><span><a  [routerLink]="['/quanly']" href="#">Số Điện Thoại</a></span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let tv of listKhachHang">
+								<td class="text-center">{{ tv.MAKHACHHANG }}</td>
+								<td class="text-center">{{ tv.TENKHACHHANG }}</td>
+								<td class="text-center">{{ tv.TENDANGNHAP }}</td>
+								<td class="text-right">{{ tv.DIACHI }}</td>
+								<td class="text-right">{{ tv.SODIENTHOAI }} </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- panel body -->
+</div>

@@ -1,0 +1,151 @@
+<!--nav-->
+<nav role="navigation" class="navbar navbar-custom">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<a href="#" [routerLink]="['/']" class="navbar-brand">Website Bán Rau Sạch Trưc Tuyến</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="#" [routerLink]="['/quanly']">{{ tenDangNhap }}</a></li>
+				<li class="active"><a href="#" [routerLink]="['/loginadmin']">Thoát</a></li>
+			</ul>
+
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!--header-->
+<div class="container-fluid">
+	<!--documents-->
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-xs-4 col-sm-2 sidebar-offcanvas" role="navigation">
+			<ul class="list-group panel">
+				<li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i> <b>&nbsp;Quản Lý</b></li>
+				<li class="list-group-item"><a href="" [routerLink]="['/quanly']"><i class="glyphicon glyphicon glyphicon-arrow-left"></i>&nbsp;&nbsp;Quay lại </a></li>
+                <li class="list-group-item"><a href="" [routerLink]="['/loginadmin']"><i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;Thoát </a></li>
+			</ul>
+		</div>
+		<div class="col-xs-12 col-sm-10 content">
+
+			<div class="panel panel-primary ">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span> Sửa sản phẩm
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="content-row">
+						<div class="container-fluid">
+							<!--<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>-->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+								<div class="content-row">
+									<br/>
+									<div class="panel panel-default">
+										<div class="panel-heading text-left">
+											<div class="panel-title"><b>{{ maSanPham }}</b>
+											</div>
+
+											<div class="panel-body">
+												<form novalidate="" role="form" class="form-horizontal" [formGroup]="myForm" (ngSubmit)="onSubmit(
+                  tensanpham.value, loaisanpham.value, gia.value, soluong.value, nguongoc.value, thongtin.value)">
+													<div class="form-group">
+														<label class="col-md-2 control-label">Tên Sản Phẩm</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': tensanpham.touched && !tensanpham.valid }">
+																<input type="text" class="form-control" id="tensanpham" placeholder="Tên sản phẩm" [formControl]="myForm.controls['tensanpham']">
+																<div *ngIf="tensanpham.touched && !tensanpham.valid" class="help-block">Tên sản phẩm không được trống!</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">Loại Sản Phẩm</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': loaisanpham.touched && !loaisanpham.valid }">
+																<select class="form-control" id="loaisanpham" placeholder="Loại sản phẩm" [formControl]="myForm.controls['loaisanpham']">
+                            <option  *ngFor="let lsp of listLoaiSanPham" [ngValue]="lsp.MALOAISANPHAM" >{{ lsp.TENLOAISANPHAM }}</option>
+                          </select>
+																<div *ngIf="loaisanpham.touched && !loaisanpham.valid" class="help-block">Tên loại sản phẩm không được trống!</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">Hình Ảnh</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': hinhanh.touched && uploader.queue.length==0 }">
+																<input type="file" id="hinhanh" placeholder="chọn hình ảnh" accept=".jpg, .png, gif" ng2FileSelect [uploader]="uploader">
+																<div *ngIf="uploader.queue.length>0"><strong>Kích thước ảnh: </strong> {{ uploader.queue[uploader?.queue?.length -1 ].file.size/1024/1024 | number:'.2'
+																	}} MB </div>
+																<div *ngIf=" hinhanh.touched && uploader.queue.length==0" class="help-block">Chưa chọn hình ảnh!</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">Giá</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': gia.touched && !gia.valid }">
+																<input type="text" class="form-control" id="gia" placeholder="Giá" [formControl]="myForm.controls['gia']">
+																<div *ngIf="gia.touched && !gia.valid" class="help-block">Giá không hợp lệ!</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">Số Lượng</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': soluong.touched && !soluong.valid }">
+																<input type="text" class="form-control" id="soluong" type="number" placeholder="Số lượng" [formControl]="myForm.controls['soluong']">
+																<div *ngIf="soluong.touched && !soluong.valid" class="help-block">Số lượng không được trống!</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">Nguồn Gốc</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': (nguongoc.touched && !nguongoc.valid) }">
+																<input class="form-control" id="nguongoc" placeholder="Nguồn gốc" [formControl]="myForm.controls['nguongoc']">
+																<div *ngIf="(nguongoc.touched && !nguongoc.valid) " class="help-block">Nguồn gốc không được trống!</div>
+																<!--<br/>
+                                <div class="has-error">
+                                  <div *ngIf="!myForm.valid" class="help-block">VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN</div>
+                                </div>-->
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label" for="description">Thông Tin</label>
+														<div class="col-sm-9">
+															<div [ngClass]="{ 'has-error': (thongtin.touched && !thongtin.valid) }">
+																<textarea class="form-control" id="thongtin" placeholder="Thông tin" rows="3" [formControl]="myForm.controls['thongtin']"></textarea>
+																<div *ngIf="(thongtin.touched && !thongtin.valid) " class="help-block">Thông tin không được trống!</div>
+																<!--<br/>
+                                <div class="has-error">
+                                  <div *ngIf="!myForm.valid" class="help-block">VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN</div>
+                                </div>-->
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="col-md-offset-2 col-md-9">
+															<!--!myForm.valid || uploader.queue.length==0-->
+															<button type="submit" class="btn btn-primary" [disabled]="!myForm.valid  || uploader.queue.length==0">Sửa</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- panel body -->
+				</div>
+
+			</div>
+			<!-- content -->
+		</div>
+	</div>

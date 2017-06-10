@@ -1,0 +1,37 @@
+<app-header>header ...</app-header>
+<div class="container">
+	<legend class="tenloaisanpham">{{ ten }}</legend>	
+</div>
+<div class="margintoptensp"></div>
+<div class="container">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 margin10 text-center marginbottom heightitem" *ngFor="let sp of listSanPham">
+		<div class="borderitem">
+			<figure>
+				<!--{{ sp.HINHANH }} ../assets/images/1.png-->
+				<img class="heightimg" src="{{ sp.HINHANH }}" alt="">
+			</figure>
+			<div class="content">
+				<div class="single-item">
+					<h3><a href="shop-single.html"> {{ sp.TENSANPHAM }}</a></h3>
+					<div class="rating"><span class="fa fa-star"> </span>
+						<span class="fa fa-star"> </span>
+						<span class="fa fa-star"> </span>
+						<span class="fa fa-star"> </span>
+					</div>
+					<div class="price"><span class="prev-rate"> {{ sp.GIA }} </span>vnđ</div>
+				</div>
+			</div>
+			<div class="col-lg-12 mua ">
+				<div class="container-fluid">
+					<div class="shopcart ">
+						<div class="margintopitem">
+							<a href="#" [routerLink]="['/giohang']"><i class="fa fa-plus-circle fa-3x colorgreen" aria-hidden="true"></i></a>
+							<a  [routerLink]="['/chitietsanpham', sp.MASANPHAM]" href="#" ><i class="fa fa-arrow-circle-o-right fa-3x colorgreen" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer>footer ...</app-footer>

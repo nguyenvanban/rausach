@@ -1,0 +1,27 @@
+.custompagination {
+    cursor: pointer;
+}
+.customactive {
+    color: #007700;
+    font-style: normal;
+}
+
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.6;
+    color: #75A501;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.pagination>li>a:hover, .pagination>li>span:hover {
+    color: #699401;
+    font-weight: bold;
+ }

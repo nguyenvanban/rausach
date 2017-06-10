@@ -1,0 +1,95 @@
+<app-header>header ...</app-header>
+<div class="container">
+	<div class="mypanel margintoppanel">
+		<div class="panel panel-success ">
+			<div class="panel-heading">{{ tenSp }}</div>
+			<br/>	<br/>
+			<div class="panel-body">
+
+				<div class="container">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 margin10 text-center marginbottom heightitem">
+						<div class="borderitem">
+							<figure>
+								<img class="heightimgchitiet" src="{{ hinhAnh }}" alt="">
+							</figure>
+						</div>
+					</div>
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 margintopchitiet">
+						<div class="tensanpham titlechitiet">
+							<span>{{ tenSp }}</span>
+						</div>
+						<div class="gia ">
+							<span titlechitiet>Giá: </span>{{ gia}} đồng
+						</div>
+						<div class="soluong">
+							<span titlechitiet>Số lượng còn: </span> {{ soLuong }}
+						</div>
+						<div class="nguongoc">
+							<span titlechitiet>Nguồn gốc: </span> {{ nguonGoc }}
+						</div>
+						<div class="rating"><span class="fa fa-star"> </span>
+							<span class="fa fa-star" *ngFor="let sp of createRange(trangthai)" > </span>
+						</div>
+						<div class="container-fluid">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 marginleft">
+								<form role="form" (ngSubmit)="f.form.valid && update()" #f="ngForm">
+									<div class="form-group">
+										<label for="soluong"></label>
+										<input type="number" class="form-control" id="soluong" [(ngModel)]="model.soluong" #soluong="ngModel" [ngModelOptions]="{standalone: true}"
+											required>
+									</div>
+									<button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-12">
+						<div class="panel panel-success">
+							<div class="panel-heading">Thông tin chi tiết</div>
+							<div class="panel-body">
+								{{ thongTin }}
+							</div>
+						</div>
+					</div>
+				</div>
+				<br/>	<br/><br/>
+				<div class="container-fluid">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="panel panel-success">
+						<div class="panel-heading">Bình luận</div>
+						<div class="container-fluid">
+							<div class="panel-body">
+								
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<form role="form" (ngSubmit)="b.form.valid && updateComment()" #b="ngForm">
+										<div class="form-group">
+											<textarea class="form-control" rows="5" id="comment" [(ngModel)]="model.binhluan" #binhluan="ngModel" [ngModelOptions]="{standalone: true}"
+												required></textarea>
+										</div>
+										<button type="submit" class="btn btn-primary">Gửi</button>
+									</form>
+								</div>
+							</div>			
+						</div>
+						
+						<br/><br/>
+						<div class="container">
+							<div class="panel-body ">
+								<div *ngFor="let bl of listBinhLuan" class="">
+									<div class="borderBinhLuan"></div>
+									<div class="tenbinhluan"> {{ bl.TENDANGNHAP }} : </div>
+									<div class="noidungbinhluan"> {{ bl.NHANXET }} </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer>footer ...</app-footer>

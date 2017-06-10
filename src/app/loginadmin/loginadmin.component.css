@@ -1,0 +1,21 @@
+.sai {
+    margin-top: 20px;
+    font-size: 16px;
+    color: red;
+}
+.dangtai {
+    width: 100px;
+    height: 100px;
+}
+
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+}
+a:hover {
+    text-decoration: none;
+}

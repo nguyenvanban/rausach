@@ -1,0 +1,48 @@
+<app-header>header ...</app-header>
+<div class="container margintoppanel">
+	<!--<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+	</div>-->
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2">
+            </div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="mypanel">
+			<div class="panel panel-success">
+				<div class="panel-heading">Giỏ Hàng</div>
+				<div class="panel-body">
+				<div class="container-fluid">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <table class="table table-hover table-bordered ">
+                 <thead >
+                    <tr>
+                      <th class="text-center">Tên Sản Phẩm</th>
+                      <th class="text-center">Giá</th>
+                      <th class="text-center">Số Lượng</th>
+                      <th class="text-center">Thành Tiền</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let sp of tien">
+                      <td class="text-center">{{ sp.TENSANPHAM }}</td>
+                      <td class="text-center">{{ sp.GIA }}</td>
+                      <td class="text-center">{{ sp.SoLuongMua }}</td>
+                      <td class="text-right">{{ sp.Tien }} Vnđ</td>
+
+                    </tr>
+                    <tr>
+                      <th colspan="2" class="text-center">Tổng tiền</th>
+                      <th colspan="2" class="text-right">{{ sum }} Vnđ</th>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<app-footer>footer ...</app-footer>
